@@ -1,5 +1,8 @@
 package com.miniaturesolutions.pojo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class TestPojo {
 
 	public String getMessage() {
@@ -27,11 +30,11 @@ public class TestPojo {
 	}
 	
 
-	public InnerPojo[] getInnerPojos() {
+	public List<InnerPojo> getInnerPojos() {
 		return innerPojos;
 	}
 
-	public void setInnerPojos(InnerPojo[] innerPojos) {
+	public void setInnerPojos( List<InnerPojo> innerPojos) {
 		this.innerPojos = innerPojos;
 	}
 
@@ -39,5 +42,5 @@ public class TestPojo {
 	private String name = "";
 	private String message = "";
 	private InnerPojo innerPojo = new InnerPojo();
-	private InnerPojo[] innerPojos = new InnerPojo[10];
+	private List<InnerPojo> innerPojos = new LinkedList<InnerPojo>();;
 }

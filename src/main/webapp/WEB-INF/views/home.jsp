@@ -18,7 +18,19 @@
 	           modelAttribute="testPojo"> 
 		
 		Message: <sf:input path="message" size="15" /><br/>
-		Opinion: <sf:input path="innerPojo.opinion" size="15" /><br/>	
+		Opinion: <sf:input path="innerPojo.opinion" size="15" /><br/>
+		Text: <sf:input path="innerPojo.text" size="15" /><br/>		
+		
+		<table>
+		<c:forEach items="${testPojo.innerPojos}" var="item" varStatus="i">
+			<tr><td>
+				<input type="text" name="innerPojos[${i.index}].text" value="${item.text}" />
+			</td><td>
+				<input type="text" name="innerPojos[${i.index}].opinion" value="${item.opinion}" />	
+			</td></tr>
+			
+		</c:forEach>
+		</table>
 		
 		<input name="commit" type="submit" 
 		                    value="Sumbit your Message" />

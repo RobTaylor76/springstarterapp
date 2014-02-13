@@ -1,16 +1,12 @@
 package com.miniaturesolutions.mvc;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.miniaturesolutions.pojo.InnerPojo;
 import com.miniaturesolutions.pojo.TestPojo;
 
@@ -23,6 +19,11 @@ public class HomeController {
 	TestPojo test = new TestPojo();
 	test.setMessage("hiya");
 	model.put("testPojo",test);
+	List<InnerPojo> inners = test.getInnerPojos();
+	for( int i=0; i< 4;i++)
+	{
+		inners.add(new InnerPojo(String.valueOf(i)));
+	}
     return "home";
   }
 
@@ -30,7 +31,7 @@ public class HomeController {
 	public String handlePost( TestPojo pojo, BindingResult br, Map<String, Object> model){
 	
 		pojo.setName("Wibble");
-
+//		pojo.getInnerPojos().
 		model.put("testPojo",pojo);
 		return "home";
 	}
