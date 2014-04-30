@@ -18,6 +18,18 @@
      <put-attribute name="content" value="/WEB-INF/views/home.jsp" />
    </definition>  
 <!--<end id="tile_home"/>-->
+ 
+
+   <definition name="testpojo/index" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/testpojo/index.jsp" />
+   </definition>  
+
+
+
+   <definition name="testpojo/show" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/testpojo/show.jsp" />
+   </definition>  
+
    
      
 </tiles-definitions>

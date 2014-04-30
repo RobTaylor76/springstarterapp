@@ -39,6 +39,16 @@ public class TestPojo {
 	}
 
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	private long id = -1L;
 	private String name = "";
 	private String message = "";
 	private InnerPojo innerPojo = new InnerPojo();

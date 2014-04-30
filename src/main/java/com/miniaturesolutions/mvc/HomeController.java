@@ -13,7 +13,7 @@ import com.miniaturesolutions.pojo.TestPojo;
 @Controller
 public class HomeController {
 
-@RequestMapping(value={"/","/test", "/test*"}, method=RequestMethod.GET)
+@RequestMapping(value={"/","/test"}, method=RequestMethod.GET)
   public String test(Map<String, Object> model) {
 	
 	TestPojo test = new TestPojo();
