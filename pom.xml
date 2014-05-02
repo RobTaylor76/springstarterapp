@@ -3,21 +3,51 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>springwebapp</groupId>
-  <artifactId>springwebapp</artifactId>
+  <groupId>springjpa</groupId>
+  <artifactId>springjpa</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>springwebapp</name>
+  <name>springjpa</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <java.version>1.7</java.version>
-    <spring.version>3.1.0.RELEASE</spring.version>
+    <spring.version>4.0.1.RELEASE</spring.version>
+    <hibernate.version>4.3.5.Final</hibernate.version>
     <cglib.version>2.2.2</cglib.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
+         
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+    <dependency>
+      <groupId>postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.1-901.jdbc4</version>
+    </dependency>            
+  
+        <!-- Spring Data JPA -->
+
+    
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>
+    
     <!-- Spring core & mvc -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -25,23 +55,34 @@
       <version>${spring.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.5.8</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.8</version>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>${spring.version}</version>
     </dependency>
+
+   <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.webflow</groupId>
+      <artifactId>spring-webflow</artifactId>
+      <version>2.3.2.RELEASE</version>
+    </dependency>
+
+
+<!--  TILES -->
 
     <dependency>
       <groupId>org.apache.tiles</groupId>
@@ -56,28 +97,16 @@
     </dependency>
 
 
+
+<!-- JSTL -->
+
     <dependency>
       <groupId>jstl</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>${spring.version}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-      <type>jar</type>
-      <scope>test</scope>
-    </dependency>
-
+ 
     <!-- CGLib for @Configuration -->
     <dependency>
       <groupId>cglib</groupId>
@@ -86,12 +115,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework.webflow</groupId>
-      <artifactId>spring-webflow</artifactId>
-      <version>2.3.2.RELEASE</version>
-    </dependency>
-
+ 
     <!-- Servlet Spec -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -105,15 +129,38 @@
       <version>2.1</version>
       <scope>provided</scope>
     </dependency>
-  </dependencies>
 
-  <repositories>
-    <repository>
-      <id>springsource-milestones</id>
-      <name>SpringSource Milestones Proxy</name>
-      <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-    </repository>
-  </repositories>
+
+    <!-- slf4j  -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.6.0</version>
+    </dependency>
+
+
+<!--  testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+    
+  </dependencies>
 
   <build>
     <finalName>springwebapp</finalName>
