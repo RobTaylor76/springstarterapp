@@ -24,13 +24,21 @@
     <property name="generateDdl" value="false"/>
     <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
   </bean>
-  
+  <!-- 
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="org.postgresql.Driver"/>
       <property name="url" value="jdbc:postgresql://localhost/cashflowprojector_dev"/>
       <property name="username" value="rails_user"/>
       <property name="password" value=""/>
   </bean>
+  -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+      <property name="url" value="jdbc:hsqldb:hsql://localhost/jpatestdb"/>
+      <property name="username" value="sa"/>
+      <property name="password" value=""/>
+  </bean>
+  
   
   <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
