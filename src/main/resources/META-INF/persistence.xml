@@ -2,8 +2,8 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              version="1.0">
 
-    <persistence-unit name="postgres">
-
+    <persistence-unit name="default">
+      <!--   <class>com.miniaturesolutions.orm.User</class> -->
     </persistence-unit>
     
 </persistence>
