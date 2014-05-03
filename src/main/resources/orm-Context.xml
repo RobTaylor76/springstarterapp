@@ -22,7 +22,7 @@
     <property name="database" value="POSTGRESQL"/>
     <property name="showSql" value="true"/>    
     <property name="generateDdl" value="false"/>
-    <property name="databasePlatform" value="org.hibernate.dialect.POSTGRESQLDialect"/>
+    <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
   </bean>
   
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
