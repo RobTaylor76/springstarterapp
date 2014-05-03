@@ -32,6 +32,14 @@
       <artifactId>hibernate-entitymanager</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
+    
+    <!-- liquibase -->
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-maven-plugin</artifactId>
+      <version>3.1.1</version>
+    </dependency>
+            
 <!-- 
     <dependency>
       <groupId>postgresql</groupId>
