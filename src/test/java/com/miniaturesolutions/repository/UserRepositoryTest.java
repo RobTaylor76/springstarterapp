@@ -2,6 +2,8 @@ package com.miniaturesolutions.repository;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -11,6 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
+import com.miniaturesolutions.orm.Role;
+import com.miniaturesolutions.orm.RoleType;
 import com.miniaturesolutions.orm.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,13 +25,17 @@ public class UserRepositoryTest {
 
 	@Autowired
 	UserRepository userRepository;
-	
+	@Autowired
+	RoleTypeRepository roleTypeRepository;	
 	@Test
 	public void getUser() {
 		User rob = userRepository.findById(100L);
 		
 		assertNotNull("should have a user",rob);
 		assertEquals("r@b.com", rob.getEmail());
+		
+		assertTrue("should have  1 role", rob.getRoles().size() == 1);
+		
 		
 		User bob = userRepository.findById(101L);
 		assertEquals("b@b.com", bob.getEmail());	
@@ -37,12 +45,31 @@ public class UserRepositoryTest {
 	@Test
 	public void addUser() {
 		User newUser = new User("f@f.com");
+		RoleType loadedType1 = roleTypeRepository.findById(100L);		
+		Role newRole = new Role();
+		
+		Collection<Role> roles = newUser.getRoles();
+		
+		newRole.setUser(newUser);
+		newRole.setName("role1");
+		
+		RoleType type = new RoleType();
+		type.setId(100L);
+		
+		newRole.setRoleType(type);
+	
+		roles.add(newRole);
 		
 		userRepository.persist(newUser);
 		
-		assertNotEquals("should have id > 0", 0L, newUser.getId());
+		assertNotEquals("should have id > 0", 0L, newUser.getId());		
 		
+
+		userRepository.refresh(newUser);
+		RoleType loadedType2 = roleTypeRepository.findById(100L);
+
+		assertNotEquals("should have id > 0", 0L, newRole.getId());
 		
-		
+
 	}
 }

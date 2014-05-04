@@ -9,4 +9,6 @@ public interface Repository<T> {
 	
 	void persist(T newObject);
 	
+	void refresh(T refreshThis);
+	
 }

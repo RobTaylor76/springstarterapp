@@ -8,34 +8,34 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.miniaturesolutions.orm.RoleType;
 import com.miniaturesolutions.orm.User;
 
 @Service
-public class UserRepository implements Repository<User> {
+public class RoleTypeRepository implements Repository<RoleType> {
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public User findById(Long id) {
-		return em.find(User.class, id);
+	public RoleType findById(Long id) {
+		return em.find(RoleType.class, id);
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<RoleType> getAll() {
 		// TODO Auto-generated method stub
 		return null; // named query?  em.findAll(User.class);
 	}
 
 	@Override
-	public void persist(User newObject) {
+	public void persist(RoleType newObject) {
 		em.persist(newObject);
 	}
 
 	@Override
-	public void refresh(User refreshThis) {
+	public void refresh(RoleType refreshThis) {
 		em.refresh(refreshThis);
-		
 	}
 
 }

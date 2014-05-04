@@ -13,7 +13,7 @@
     </appender>
  
     <category name="org.hibernate">
-        <priority value="info" />
+        <priority value="error" />
     </category>
  
     <category name="org.springframework">
