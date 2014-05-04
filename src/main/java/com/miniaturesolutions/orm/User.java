@@ -17,7 +17,7 @@ public class User {
 
 	  User() {
 	  }
-
+	  
 	  @Column(unique=true)
 	  public String getEmail() {
 	    return email;

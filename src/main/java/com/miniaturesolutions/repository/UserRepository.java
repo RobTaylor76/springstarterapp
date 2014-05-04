@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class UserRepository implements Repository<User> {
 	public List<User> getAll() {
 		// TODO Auto-generated method stub
 		return null; // named query?  em.findAll(User.class);
+	}
+
+	@Override
+	public void persist(User newObject) {
+		em.persist(newObject);
 	}
 
 }
