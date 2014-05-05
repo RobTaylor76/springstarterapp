@@ -15,39 +15,40 @@
 			<column name="email" type="varchar(50)">
 				<constraints nullable="false" />
 			</column>
+			<column name="password" type="varchar(50)" />
 		</createTable>
 		<addAutoIncrement catalogName="cat" columnDataType="int"
 			columnName="id" incrementBy="1" startWith="100" tableName="user" />
-			
-	  <createTable tableName="role">
-      <column name="id" type="int">
-        <constraints primaryKey="true" nullable="false" />
-      </column>
-      <column name="user_id" type="int">
-        <constraints nullable="false" />
-      </column>
-      <column name="roletype_id" type="int">
-        <constraints nullable="false" />
-      </column>
-      <column name="name" type="varchar(50)">
-        <constraints nullable="false" />
-      </column>
-    </createTable>
-    <addAutoIncrement catalogName="cat" columnDataType="int"
-      columnName="id" incrementBy="1" startWith="100" tableName="role" />
-	
-	  <createTable tableName="roletype">
-      <column name="id" type="int">
-        <constraints primaryKey="true" nullable="false" />
-      </column>
-      <column name="name" type="varchar(50)">
-        <constraints nullable="false" />
-      </column>
-    </createTable>
-    <addAutoIncrement catalogName="cat" columnDataType="int"
-      columnName="id" incrementBy="1" startWith="100" tableName="roletype" />
-	
-			
+
+		<createTable tableName="role">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="user_id" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="roletype_id" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addAutoIncrement catalogName="cat" columnDataType="int"
+			columnName="id" incrementBy="1" startWith="100" tableName="role" />
+
+		<createTable tableName="roletype">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="name" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addAutoIncrement catalogName="cat" columnDataType="int"
+			columnName="id" incrementBy="1" startWith="100" tableName="roletype" />
+
+
 	</changeSet>
 
 

@@ -18,12 +18,20 @@ public class User {
 
 	private long id;
 	private String email;
-
+	private List<Role> roles = new ArrayList<>();
+	private String password;
+	
 	public User(String email) {
 		this.email = email;
 	}
 
 	User() {
+	}
+
+	@Id
+	@GeneratedValue
+	public long getId() {
+		return id;
 	}
 
 	@Column(unique=true)
@@ -34,20 +42,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-	@Id
-	@GeneratedValue
-	public long getId() {
-		return id;
-	}
-
+	
 	protected void setId(long id) {
 		this.id = id;
 	}
-	
-
-	private List<Role> roles = new ArrayList<>();
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
 	public List<Role> getRoles() {
@@ -56,5 +54,13 @@ public class User {
 	
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

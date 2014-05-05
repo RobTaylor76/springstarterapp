@@ -29,6 +29,7 @@ public abstract class BaseRepository<T> implements Repository<T> {
 
 	@Override
 	public void persist(T newObject) {
+		beforePersist(newObject);
 		em.persist(newObject);
 		refresh(newObject); //refreshing will mean lookups are populated
 	}
@@ -36,5 +37,13 @@ public abstract class BaseRepository<T> implements Repository<T> {
 	@Override
 	public void refresh(T refreshThis) {
 		em.refresh(refreshThis);
+	}
+	
+	protected void beforePersist(T newObject) {
+		
+	}
+	
+	protected void beforeUpdate(T newObject) {
+		
 	}
 }

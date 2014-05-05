@@ -25,8 +25,8 @@ public class UserRepositoryTest {
 
 	@Autowired
 	UserRepository userRepository;
-	@Autowired
-	RoleTypeRepository roleTypeRepository;	
+//	@Autowired
+//	RoleTypeRepository roleTypeRepository;	
 	@Test
 	public void getUser() {
 		User rob = userRepository.findById(100L);
@@ -50,7 +50,7 @@ public class UserRepositoryTest {
 		
 		Collection<Role> roles = newUser.getRoles();
 		
-		newRole.setUser(newUser);
+		//newRole.setUser(newUser);
 		newRole.setName("role1");
 		
 		RoleType type = new RoleType();

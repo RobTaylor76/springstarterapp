@@ -5,18 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
-
 @Entity
 public class Role {
-
-
 	private long id;
-
+	private User owner;
+	private String name;
+	private RoleType roleType;
+	
 	public Role() {
 
 	}
-
 
 	@Id
 	@GeneratedValue
@@ -27,11 +25,6 @@ public class Role {
 	protected void setId(long id) {
 		this.id = id;
 	}
-	
-
-	private User owner;
-	private String name;
-	private RoleType roleType;
 	
 	@ManyToOne
 	public User getUser() {
@@ -46,10 +39,10 @@ public class Role {
 	public RoleType getRoleType() {
 		return roleType;
 	}
+	
 	public void setRoleType(RoleType type) {
 		this.roleType = type;
 	}
-
 
 	public String getName() {
 		return name;

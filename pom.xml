@@ -119,7 +119,12 @@
       <version>2.2.2</version>
     </dependency>
 
-
+<!--  Model Mapper -->
+  <dependency>
+    <groupId>org.modelmapper.extensions</groupId>
+    <artifactId>modelmapper-spring</artifactId>
+    <version>0.6.5</version>
+  </dependency>
 
 <!-- JSTL -->
 
