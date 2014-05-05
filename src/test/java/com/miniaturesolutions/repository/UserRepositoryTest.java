@@ -45,7 +45,7 @@ public class UserRepositoryTest {
 	@Test
 	public void addUser() {
 		User newUser = new User("f@f.com");
-		RoleType loadedType1 = roleTypeRepository.findById(100L);		
+		//RoleType loadedType1 = roleTypeRepository.findById(100L);		
 		Role newRole = new Role();
 		
 		Collection<Role> roles = newUser.getRoles();
@@ -64,12 +64,21 @@ public class UserRepositoryTest {
 		
 		assertNotEquals("should have id > 0", 0L, newUser.getId());		
 		
+		//RoleType loadedType2 = roleTypeRepository.findById(100L);
 
-		userRepository.refresh(newUser);
-		RoleType loadedType2 = roleTypeRepository.findById(100L);
 
-		assertNotEquals("should have id > 0", 0L, newRole.getId());
 		
+		for(Role role: newUser.getRoles()) {
+			assertNotEquals("should have id > 0", 0L, role.getId());
+			
+			RoleType roleType = role.getRoleType();
+			assertNotEquals("should have id > 0", 0L, roleType.getId());
+			assertNotNull("should have name populated from db", roleType.getName());			
+			
+			
+		}
+		
+		//userRepository.refresh(newUser);
 
 	}
 }

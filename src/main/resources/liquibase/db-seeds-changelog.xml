@@ -15,6 +15,7 @@
             insert into user (email) values ('r@b.com')
             insert into user (email) values ('b@b.com')
             insert into roletype (name) values ('type_1')
+            insert into roletype (name) values ('type_2')
             insert into role (user_id, name, roletype_id) select id, 'role 1', 100 from user
     </sql>
       
